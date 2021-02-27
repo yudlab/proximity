@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proximity</title>
     <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 </head>
 <body>
     <header>
@@ -13,38 +14,40 @@
             <div class="logo">
                 <a href="#" target="_blank"></a>
             </div>
-            <ul class="menu">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Work</a></li>
-                <li><a href="#">Latest</a></li>
-                <li><a href="#">People & Careers</a></li>
-                <li><a href="#">Contact</a></li>
-                <li id="lang_selector">
-                    <span class="en active">EN</span>
-                    <span class="fr">FR</span>
-                </li>
-            </ul>
+            <div id="toggle-menu" style="display: none;"></div>
+            <nav class="menu">
+                <a href="#">About</a>
+                <a href="#">Work</a>
+                <a href="#">Latest</a>
+                <a href="#">People & Careers</a>
+                <a href="#">Contact</a>
+                <div id="lang_selector">
+                    <span data-lang="en" class="en active">EN</span>
+                    <span data-lang="fr" class="fr">FR</span>
+                </div>
+            </nav>
         </div>
     </header>
 
     <section id="home">
         <h1>We make people more valuable to brands</h1>
-        <a class="arrow_down" href="#how-we-do-it"></a>
-        <video width="100%" height="100%" poster="assets/videos/video-poster.jpg" autoplay loop>
+        <video width="100%" height="100%" poster="assets/videos/video-poster.jpg" autoplay="true" loop="true" muted="true" playsinline="true" webkit-playsinline="true">
             <source src="assets/videos/video.mp4" type="video/mp4">
         </video>
+        <a class="arrow_down" onclick="goto('#how-we-do-it')"></a>
     </section>
 
     <section id="how-we-do-it">
-        <h4>how we do it</h4>
+        <h4 class="subtitle_h4">how we do it</h4>
         <h2>We use data-driven creativity to solve business problems</h2>
         <div class="paragraph-wrap">
-            <div class="para">By harnessing powerful insights and smart targeting, we’re able to create behavior-changing ideas and experiences that deliver value to brands. Supported by our proprietary Creative Intelligence process, unique tools and global partners, we are able to put data at the heart of everything we do to orchestrate experiences that deliver creativity with precision and purpose.</div>
+            <img src="assets/img/how-we-do-it.png" alt="how-we-do-it.png">
+            <div class="para">By harnessing powerful insights and smart targeting, we’re able to create behavior-changing ideas and experiences that deliver value to brands. Supported by our proprietary <a>Creative Intelligence process</a>, <a>unique tools</a> and <a>global partners</a>, we are able to put data at the heart of everything we do to orchestrate experiences that deliver creativity with precision and purpose.</div>
         </div>
     </section>
 
     <section id="business-problems-solved">
-        <h4>business problems we've solved</h4>
+        <h4 class="subtitle_h4">business problems we've solved</h4>
         <div class="card-wrap">
             <div class="card">
                 <h3>Can a love story double as a hearing test?</h3>
@@ -55,14 +58,14 @@
                 <a href="#">Find out here</a>
             </div>
         </div>
-        <a href="#">View our work</a>
+        <a href="#" class="view_work">View our work</a>
     </section>
 
-    <div id="return_to_top">Return to top</div>
+    <a id="return_to_top" onclick="goto('#home')">Return to top</a>
 
     <footer>
         <div class="copyright">
-            © Proximity Worldwide 2018. All Rights Reserved. <a href="#">Privacy statement.</a>
+            © Proximity Worldwide 2021. All Rights Reserved. <a href="#">Privacy statement.</a>
         </div>
         <ul class="social">
             <li><a href="#" target="_blank" class="linkedin"></a></li>
@@ -71,5 +74,6 @@
         </ul>
     </footer>
 
-</body>
+</body>  
+    <script src="assets/js/main.js"></script>
 </html>
