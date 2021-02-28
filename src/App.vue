@@ -11,6 +11,7 @@ import Header from './components/Header.vue'
 import Homepage from './components/Homepage.vue'
 import Footer from './components/Footer.vue'
 
+
 export default {
   name: 'App',
   components: {
@@ -22,5 +23,6 @@ export default {
 </script>
 
 <style lang="scss">
-
+  @import "./assets/scss/_mixin.scss";
+  @import "./assets/scss/style.scss";
 </style>
