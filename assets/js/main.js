@@ -1,3 +1,5 @@
+
+    
     //add mobile class if width < 900
     (function(){
         if(getWidth() < 900) {
@@ -7,7 +9,7 @@
     
     //use to handle fixed|static header
     $(window).scroll(function() {
-        var height = $(window).scrollTop();
+        let height = $(window).scrollTop();
         (getWidth() > 900 && height  > 350) ? $('header').addClass('scroll') : $('header').removeClass('scroll')
     });
     
@@ -15,7 +17,7 @@
     $('#toggle-menu').on('click tap touch', function () {
         if($('.header-wrap .menu').hasClass('open')) {
             $('.header-wrap .menu').removeClass('open').addClass('close')
-            $(this).removeClass('open')
+            $(this).children('.bar').removeClass('open')
             $('body').removeClass('overflow')
             setTimeout(function(){
                 $('.header-wrap .menu').css('display', 'none')
@@ -23,7 +25,7 @@
         }
         else {
             $('.header-wrap .menu').addClass('open').removeClass('close').css('animation', 'MenuShow 1.5s linear 1.5s;')
-            $(this).addClass('open')
+            $(this).children('.bar').addClass('open')
             $('body').addClass('overflow')
             setTimeout(function(){
                 $('.header-wrap .menu').css('display', 'flex')
