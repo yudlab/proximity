@@ -7,8 +7,8 @@
             <div id="toggle-menu" v-if="isMobile" @click="handleMenu">
                 <div class="bar" :class="{ open: isMenuOpen }"></div>
             </div>
-            <nav class="menu" :class="{ open: isMenuOpen, close: !isMenuOpen }">
-                <a v-for="link in menulinks" :href="link.href" :key="link.id">{{ link.title }}</a>
+            <nav class="menu" :class="{ open: isMenuOpen, close: isMobile && !isMenuOpen }">
+                <a v-for="link in menulinks" :id="link.id" :href="link.href" :key="link.id">{{ link.title }}</a>
                 <div id="lang_selector">
                     <span data-lang="en" :class="{ active: lang == 'en' }" @click="handleLanguage">EN</span>
                     <span data-lang="fr" :class="{ active: lang == 'fr' }" @click="handleLanguage">FR</span>
@@ -46,7 +46,7 @@ export default {
     },
     handleLanguage(e) {
       this.lang = e.currentTarget.getAttribute('data-lang');
-    },
+    }
   },
 
   watch: {
@@ -58,9 +58,13 @@ export default {
   },
   
   mounted() {
-    window.addEventListener('scroll', this.updateScroll);
-    this.isMobile = (window.innerWidth < 900) ? true : false;
     this.lang = this.$store.getters.lang;
+    window.addEventListener('scroll', this.updateScroll);
+    
+    this.isMobile = (window.innerWidth < 900) ? true : false;
+    window.addEventListener('resize', () => {
+      this.isMobile = (window.innerWidth < 900) ? true : false;
+    })
   },
 
 
